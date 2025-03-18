@@ -15,3 +15,7 @@ Installation
 
 2. Start dev server:
 ```npm run dev```
+
+Visualize database
+
+```npx prisma studio```
