@@ -72,7 +72,7 @@ export default function Register() {
                 <label>
                     <Text size="sm">Nome de usuário</Text>
                     <TextInput 
-                        prefix="ignite.com/" 
+                        prefix="calendly.com/" 
                         placeholder="seu-usuário" 
                         {...register('username')}
                     />
