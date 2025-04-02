@@ -1,23 +1,48 @@
-## Calendlynx
+# Calendlynx 📅
 
 ![image](https://github.com/user-attachments/assets/fd822d0d-6825-49fa-81f5-e48c7c826fe4)
 
-Calendlynx is a simple scheduling app that syncs with your Google Calendar, allowing others to book time directly into your calendar with ease.
+Calendlynx is a scheduling app that syncs with your Google Calendar, allowing others to book time directly into your calendar with ease. It uses NextAuth.js for authentication, enabling users to log in via their Google account.
 
-### Features
+### Main points
+- Syncs with Google Calendar
+- Allows users to share their availability with others
+- Automatically schedules meetings and events into the user's Google Calendar
+- Google account login via NextAuth.js.
 
-- Syncs with Google Calendar.
-- Share your availability with others.
-- Automatically schedules meetings and events into your Google Calendar.
+### Technology Stack
+- React
+- TypeScript
+- Next.js
+- NextAuth.js
+- Google API
+- Prisma (ORM)
 
 Installation
 
-1. Install dependencies:
+1. Clone the repository:
+```
+git clone https://github.com/thainapires/calendlynx.git
+cd calendlynx
+```
+
+2. Install dependencies:
 ```npm install```
 
-2. Start dev server:
+3. Set up environment variables for Google authentication by creating a .env file with the following content:
+
+```
+DATABASE_URL="file:./dev.db"
+
+# Google oAuth
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+NEXTAUTH_SECRET=
+```
+
+3. Start the development server:
 ```npm run dev```
 
-Visualize database
+Visualize the database with Prisma Studio
 
 ```npx prisma studio```
