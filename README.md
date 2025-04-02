@@ -32,7 +32,7 @@ cd calendlynx
 3. Set up environment variables for Google authentication by creating a .env file with the following content:
 
 ```
-DATABASE_URL="file:./dev.db"
+DATABASE_URL="mysql://root:docker@localhost:3306/calendlynx"
 
 # Google oAuth
 GOOGLE_CLIENT_ID=
@@ -46,3 +46,7 @@ NEXTAUTH_SECRET=
 Visualize the database with Prisma Studio
 
 ```npx prisma studio```
+
+### Docker to run the mysql database
+
+```docker run --name mysql -e MYSQL_ROOT_PASSWORD=docker -p 3306:3306 mysql:latest```
