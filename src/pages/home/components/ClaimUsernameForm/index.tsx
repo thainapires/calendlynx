@@ -34,7 +34,7 @@ export function ClaimUsernameForm() {
   return (
     <>
       <Form as="form" onSubmit={handleSubmit(handleClaimUsername)}>
-        <TextInput size="sm" prefix="ignite.com/" placeholder="your-user" {...register('username')}/>
+        <TextInput size="sm" prefix="schedulynx.vercel.app/" placeholder="your-user" {...register('username')}/>
         <Button size="sm" type="submit" disabled={isSubmitting}>
           Book User
           <ArrowRight />
