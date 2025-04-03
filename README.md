@@ -22,8 +22,8 @@ Installation
 
 1. Clone the repository:
 ```
-git clone https://github.com/thainapires/calendlynx.git
-cd calendlynx
+git clone https://github.com/thainapires/schedulynx.git
+cd schedulynx
 ```
 
 2. Install dependencies:
@@ -49,4 +49,4 @@ Visualize the database with Prisma Studio
 
 ### Docker to run the mysql database
 
-```docker run --name mysql -e MYSQL_ROOT_PASSWORD=docker -p 3306:3306 mysql:latest```
+```docker run --name postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres```

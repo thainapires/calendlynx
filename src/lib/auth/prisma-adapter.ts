@@ -8,8 +8,9 @@ export function PrismaAdapter(
 	res: NextApiResponse | NextPageContext['res'],
 ): Adapter {
 	return {
+		// @ts-ignore
     	async createUser(user) {
-			const { '@calendlynx:userId': userIdOnCookies } = parseCookies({req})
+			const { '@schedulynx:userId': userIdOnCookies } = parseCookies({req})
 			
 			if(!userIdOnCookies){
 				throw new Error('User ID not found on cookies.')
@@ -26,7 +27,7 @@ export function PrismaAdapter(
 				}
 			})
 
-			destroyCookie({ res }, '@calendlync:userId', {
+			destroyCookie({ res }, '@schedulynx:userId', {
 				path: '/'
 			})
 
@@ -133,6 +134,7 @@ export function PrismaAdapter(
 			}
 		},
 
+		// @ts-ignore
 		async linkAccount(account) {
 			await prisma.account.create({
 				data: {

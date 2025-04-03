@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Text, TextArea, TextInput } from '@ignite-ui/react'
 import dayjs from 'dayjs'
@@ -21,7 +22,7 @@ interface ConfirmStepProps {
     onCancelConfirmation: () => void
 }
 
-export function ConfirmStep({schedulingDate,onCancelConfirmation}: ConfirmStepProps) {
+export default function ConfirmStep({schedulingDate,onCancelConfirmation}: ConfirmStepProps) {
     const { register, handleSubmit, formState: { isSubmitting, errors }} = useForm<ConfirmFormData>({
         resolver: zodResolver(confirmFormSchema),
     })

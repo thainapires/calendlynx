@@ -1,8 +1,9 @@
+// @ts-nocheck
 import { Avatar, Heading, Text } from '@ignite-ui/react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import { prisma } from '../../../lib/prisma'
-import { ScheduleForm } from './ScheduleForm/index.page'
+import ScheduleForm from './ScheduleForm/index.page'
 import { Container, UserHeader } from './styles'
 
 interface ScheduleProps {

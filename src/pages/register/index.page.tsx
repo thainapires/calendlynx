@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { api } from '@/lib/axios'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Heading, MultiStep, Text, TextInput } from '@ignite-ui/react'

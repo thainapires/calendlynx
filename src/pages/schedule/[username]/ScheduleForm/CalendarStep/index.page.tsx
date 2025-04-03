@@ -18,7 +18,7 @@ interface CalendarStepProps {
 
 dayjs.extend(advancedFormat);
 
-export function CalendarStep({onSelectDateTime}: CalendarStepProps) {
+export default function CalendarStep({onSelectDateTime}: CalendarStepProps) {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
 
   const router = useRouter()

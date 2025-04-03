@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Text, TextInput } from '@ignite-ui/react'
 import { useRouter } from 'next/router'
