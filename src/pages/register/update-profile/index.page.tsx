@@ -46,10 +46,9 @@ export default function UpdateProfile() {
      
       <Container>
         <Header>
-          <Heading as="strong">Bem-vindo ao Ignite Call!</Heading>
+          <Heading as="strong">Welcome to Schedulynx!</Heading>
           <Text>
-            Precisamos de algumas informações para criar seu perfil! Ah, você pode
-            editar essas informações depois.
+            We need some information to create your profile! Oh, and you can edit it later.
           </Text>
 
           <MultiStep size={4} currentStep={4} />
@@ -57,20 +56,20 @@ export default function UpdateProfile() {
 
         <ProfileBox as="form" onSubmit={handleSubmit(handleUpdateProfile)}>
           <label>
-            <Text>Foto de perfil</Text>
+            <Text>Profile picture</Text>
             <Avatar src={session.data?.user.avatar_url} referrerPolicy="no-referrer" alt={session.data?.user.name}/>
           </label>
 
           <label>
-            <Text size="sm">Sobre você</Text>
+            <Text size="sm">About you</Text>
             <TextArea {...register('bio')} />
             <FormAnnotation size="sm">
-              Fale um pouco sobre você. Isto será exibido em sua página pessoal.
+              Tell us a bit about yourself. This will be displayed on your personal page.
             </FormAnnotation>
           </label>
 
           <Button type="submit" disabled={isSubmitting}>
-            Finalizar
+            Finish
             <ArrowRight />
           </Button>
         </ProfileBox>

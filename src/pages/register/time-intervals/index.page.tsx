@@ -24,7 +24,7 @@ const timeIntervalsFormSchema = z.object({
 	.length(7)
 	.transform((intervals) => intervals.filter((interval) => interval.enabled))
 	.refine((intervals) => intervals.length > 0, {
-		message: 'Você precisa selecionar pelo menos um dia da semana',
+		message: 'You need to select at least one day of the week.',
 	})
 	.transform((intervals) => {
 		return intervals.map((interval) => {
@@ -42,7 +42,7 @@ const timeIntervalsFormSchema = z.object({
 			)
 		},
 		{
-			message: 'O horário de término deve ser pelo menos 1h distante do início.'
+			message: 'The end time must be at least 1 hour after the start time.'
 		}
 	),
 })
@@ -95,10 +95,9 @@ export default function TimeIntervals() {
 			<NextSeo title="Select your availability | Schedulynx" noindex/>
 			<Container>
 				<Header>
-					<Heading as="strong">Quase lá</Heading>
+					<Heading as="strong">Almost there!</Heading>
 					<Text>
-						Defina o intervalo de horário que você está disponível em cada dia da
-						semana.
+					Set the time range you're available for each day of the week.
 					</Text>
 					<MultiStep size={4} currentStep={3} />
 				</Header>
@@ -149,7 +148,7 @@ export default function TimeIntervals() {
 					)}
 
 					<Button type="submit" disabled={isSubmitting}>
-						Próximo passo
+						Next Step
 						<ArrowRight />
 					</Button>
 				</IntervalBox>

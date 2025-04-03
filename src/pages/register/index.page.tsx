@@ -12,12 +12,12 @@ import { Container, Form, FormError, Header } from './styles'
 
 const registerFormSchema = z.object({
     username: z.string()
-        .min(3, { message: 'O usuário precisa ter pelo menos 3 letras.' })
+        .min(3, { message: 'The username must have at least 3 letters.' })
         .regex(/^([a-z\\-]+)$/i, {
-            message: 'O usuário pode ter apenas letras e hifens.',
+            message: 'The username can only contain letters and hyphens.',
         })
         .transform((username) => username.toLowerCase()),
-    name: z.string().min(3, { message: 'O nome precisa ter pelo menos 3 letras.' }),
+    name: z.string().min(3, { message: 'The name must have at least 3 letters.' }),
 })
   
 type RegisterFormData = z.infer<typeof registerFormSchema>
@@ -62,21 +62,21 @@ export default function Register() {
             <NextSeo title="Register | Schedulynx" />
             <Container>
                 <Header>
-                    <Heading as="strong">Bem-vindo ao Calendlynx!</Heading>
+                    <Heading as="strong">Welcome back to Schedulynx!</Heading>
                     <Text>
-                        Precisamos de algumas informações para criar seu perfil! Ah, você pode
-                        editar essas informações depois.
+                        We need some information to create your profile! Oh, and you can edit this information later.
                     </Text>
 
+                    {/*TODO: change this component because it only has portuguese version */}
                     <MultiStep size={4} currentStep={1} />
                 </Header>
 
                 <Form as="form" onSubmit={handleSubmit(handleRegister)}>
                     <label>
-                        <Text size="sm">Nome de usuário</Text>
+                        <Text size="sm">Username</Text>
                         <TextInput 
-                            prefix="calendlynx.com/" 
-                            placeholder="seu-usuário" 
+                            prefix="schedulynx.com/" 
+                            placeholder="your-user" 
                             {...register('username')}
                         />
                         {errors.username && (
@@ -87,9 +87,9 @@ export default function Register() {
                     </label>
 
                     <label>
-                        <Text size="sm">Nome completo</Text>
+                        <Text size="sm">Your full name</Text>
                         <TextInput 
-                            placeholder="Seu nome" 
+                            placeholder="Your full name" 
                             {...register('name')}
                         />
                         {errors.name && (
@@ -100,7 +100,7 @@ export default function Register() {
                     </label>
 
                     <Button type="submit" disabled={isSubmitting}>
-                        Próximo passo
+                        Next step
                         <ArrowRight />
                     </Button>
                 </Form>

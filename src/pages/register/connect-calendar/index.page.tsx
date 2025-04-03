@@ -1,9 +1,8 @@
 import { Button, Heading, MultiStep, Text } from '@ignite-ui/react'
-import { ArrowRight, Check } from 'phosphor-react'
-// import { api } from "../../../lib/axios"
 import { signIn, useSession } from 'next-auth/react'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
+import { ArrowRight, Check } from 'phosphor-react'
 import { Container, Header } from '../styles'
 import { AuthError, ConnectBox, ConnectItem } from './styles'
 
@@ -27,10 +26,9 @@ export default function ConnectCalendar() {
       <NextSeo title="Connect your google calendar | Schedulynx" noindex/>
       <Container>
         <Header>
-          <Heading as="strong">Conecte sua agenda!</Heading>
+          <Heading as="strong">Connect your calendar!</Heading>
             <Text>
-              Conecte o seu calendário para verificar automaticamente as horas
-              ocupadas e os novos eventos à medida em que são agendados.
+            Connect your calendar to automatically check busy hours and new events as they are scheduled.
             </Text>
             <MultiStep size={4} currentStep={2} />
         </Header>
@@ -40,7 +38,7 @@ export default function ConnectCalendar() {
             <Text>Google Calendar</Text>
             {isSignedId ? (
               <Button size="sm" disabled>
-                Conectado
+                Connected
                 <Check />
               </Button>
             ) : (
@@ -49,7 +47,7 @@ export default function ConnectCalendar() {
                 size="sm"
                 onClick={handleConnectCalendar}
               >
-                Conectar
+                Connect
                 <ArrowRight />
               </Button>
             )}
@@ -57,8 +55,8 @@ export default function ConnectCalendar() {
 
           {hasAuthError && (
             <AuthError size="sm">
-              Falha ao se conectar ao Google, verifique se você habilitou as
-              permissões de acesso ao Google Calendar
+              Failed to connect to Google. Please check if you have enabled 
+              access permissions for Google Calendar.
             </AuthError>
           )}
 
@@ -66,7 +64,7 @@ export default function ConnectCalendar() {
             type="submit"
             disabled={!isSignedId}
           >
-            Próximo passo
+            Next Step
             <ArrowRight />
           </Button>
         </ConnectBox>

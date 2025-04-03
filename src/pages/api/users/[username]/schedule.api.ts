@@ -74,7 +74,7 @@ export default async function handle(
         calendarId: 'primary',
         conferenceDataVersion: 1,
         requestBody: {
-          summary: `Calendlynx: ${name}`,
+          summary: `Schedulynx: ${name}`,
           description: observations,
           start: {
             dateTime: schedulingDate.format(),

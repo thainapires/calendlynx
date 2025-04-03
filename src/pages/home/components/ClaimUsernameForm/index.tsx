@@ -8,9 +8,9 @@ import { Form, FormAnnotation } from './styles'
 
 const claimUsernameFormSchema = z.object({
   username: z.string()
-    .min(3, { message: 'O usuário precisa ter pelo menos 3 letras'})
+    .min(3, { message: 'The username must have at least 3 letters.'})
     .regex(/^([a-z\\-]+)$/i, {
-      message: 'O usuário pode ter apenas letras e hifens'
+      message: 'The username can only contain letters and hyphens.'
     })
     .transform(username => username.toLowerCase()),
 })
@@ -41,7 +41,7 @@ export function ClaimUsernameForm() {
       </Form>
       <FormAnnotation>
         <Text size="sm">
-          {errors.username ? errors.username.message : 'Digite o nome do usuário desejado'}
+          {errors.username ? errors.username.message : 'Enter the desired username'}
         </Text>
       </FormAnnotation>
     </>

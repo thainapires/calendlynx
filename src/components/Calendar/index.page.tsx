@@ -46,8 +46,8 @@ export function Calendar({ selectedDate, onDateSelected } : CalendarProps) {
 
   const shortWeekDays = getWeekDays({ short: true })
 
-  const currentMonth = currentDate.format('MMMM')
-  const currentYear = currentDate.format('YYYY')
+  const currentMonth = currentDate.locale('en').format('MMMM')
+  const currentYear = currentDate.locale('en').format('YYYY')
 
   const username = String(router.query.username)
 

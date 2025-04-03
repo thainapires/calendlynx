@@ -2,6 +2,7 @@ import { Calendar } from "@/components/Calendar/index.page"
 import { api } from "@/lib/axios"
 import { useQuery } from "@tanstack/react-query"
 import dayjs from "dayjs"
+import advancedFormat from 'dayjs/plugin/advancedFormat'
 import { useRouter } from "next/router"
 import { useState } from "react"
 import { Container, TimePicker, TimePickerHeader, TimePickerItem, TimePickerList } from "./styles"
@@ -15,6 +16,8 @@ interface CalendarStepProps {
   onSelectDateTime: (date: Date) => void 
 }
 
+dayjs.extend(advancedFormat);
+
 export function CalendarStep({onSelectDateTime}: CalendarStepProps) {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
 
@@ -24,7 +27,7 @@ export function CalendarStep({onSelectDateTime}: CalendarStepProps) {
   const username = String(router.query.username)
 
   const weekDay = selectedDate ? dayjs(selectedDate).format('dddd') : null
-  const describedDate = selectedDate ? dayjs(selectedDate).format('DD[ de ]MMMM') : null
+  const describedDate = selectedDate ? dayjs(selectedDate).format('MMMM Do') : null;
 
   const selectedDateWithoutTime = selectedDate ? dayjs(selectedDate).format('YYYY-MM-DD') : null
   
@@ -54,7 +57,7 @@ export function CalendarStep({onSelectDateTime}: CalendarStepProps) {
       {isDateSelected && (
         <TimePicker>
           <TimePickerHeader>
-            {weekDay} <span>{describedDate}</span>
+            {weekDay}, <span>{describedDate}</span>
           </TimePickerHeader>
 
           <TimePickerList>

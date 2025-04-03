@@ -9,8 +9,8 @@ import { api } from '../../../../../lib/axios'
 import { ConfirmForm, FormActions, FormError, FormHeader } from './styles'
 
 const confirmFormSchema = z.object({
-    name: z.string().min(3, { message: 'O nome precisa no mínimo 3 caracteres' }),
-    email: z.string().email({ message: 'Digite um e-mail válido' }),
+    name: z.string().min(3, { message: 'The name must have at least 3 letters' }),
+    email: z.string().email({ message: 'Enter a valid email' }),
     observations: z.string().nullable(),
 })
 
@@ -42,8 +42,8 @@ export function ConfirmStep({schedulingDate,onCancelConfirmation}: ConfirmStepPr
         onCancelConfirmation()
     }
 
-    const describedDate = dayjs(schedulingDate).format('DD[ de ]MMMM[ de ]YYYY')
-    const describedTime = dayjs(schedulingDate).format('HH:mm[h]')
+    const describedDate = dayjs(schedulingDate).format('MMMM D, YYYY');
+    const describedTime = dayjs(schedulingDate).format('h:mm A');
 
     return (
         <ConfirmForm as="form" onSubmit={handleSubmit(handleConfirmScheduling)}>
@@ -59,28 +59,28 @@ export function ConfirmStep({schedulingDate,onCancelConfirmation}: ConfirmStepPr
             </FormHeader>
 
             <label>
-                <Text size="sm">Nome completo</Text>
-                <TextInput placeholder="Seu nome" {...register('name')} />
+                <Text size="sm">Full name</Text>
+                <TextInput placeholder="Your name" {...register('name')} />
                 {errors.name && <FormError size="sm">{errors.name.message}</FormError>}
             </label>
 
             <label>
-                <Text size="sm">Endereço de e-mail</Text>
+                <Text size="sm">Email address</Text>
                 <TextInput type="email" placeholder="johndoe@example.com" {...register('email')}/>
                 {errors.email && (<FormError size="sm">{errors.email.message}</FormError>)}
             </label>
 
             <label>
-                <Text size="sm">Observações</Text>
+                <Text size="sm">Notes</Text>
                 <TextArea {...register('observations')} />
             </label>
 
             <FormActions>
                 <Button type="button" variant="tertiary" onClick={onCancelConfirmation}>
-                    Cancelar
+                    Cancel
                 </Button>
                 <Button type="submit" disabled={isSubmitting}>
-                    Confirmar
+                    Confirm
                 </Button>
             </FormActions>
         </ConfirmForm>
